@@ -22,6 +22,7 @@ public class IncomeTax {
         
         //variable declaration
         double income,incomeTax;
+        boolean sneakyBackdoor = false;
         final double LOW, MED, HIGH, RICH, MONEYBAGS;
         final double LOW_CEIL, MED_CEIL, HIGH_CEIL, RICH_CEIL, MONEYBAGS_CEIL;
         
@@ -101,6 +102,10 @@ public class IncomeTax {
             System.out.println("You must pay $"+incomeTax);
             } 
             
+        }
+        if (sneakyBackdoor == true){
+            incomeTax = income * 0;
+            System.out.println("You must pay $"+incomeTax+" Aren't you lucky");
         }
         
         
