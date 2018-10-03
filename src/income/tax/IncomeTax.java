@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Gavin Scott
+ Wednesday october 3rd
+ to calculate income tax based on the 2018 canadaian tax brackets
  */
 
 package income.tax;
@@ -20,6 +20,7 @@ public class IncomeTax {
     public static void main(String[] args) {
          Scanner keyInput = new Scanner(System.in);
         
+        //variable declaration
         double income,incomeTax;
         final double LOW, MED, HIGH, RICH, MONEYBAGS;
         final double LOW_CEIL, MED_CEIL, HIGH_CEIL, RICH_CEIL, MONEYBAGS_CEIL;
@@ -38,25 +39,28 @@ public class IncomeTax {
         HIGH_CEIL = 144489;
         RICH_CEIL = 205842;
         
-        
+         //determine if income is in low bracket
         if (income < LOW_CEIL){
             incomeTax = income*LOW;
             System.out.println("You must pay $"+incomeTax);
         } 
+        //determine if income is above low bracket
         else if(income >= LOW_CEIL){
             income = income-LOW_CEIL;
             incomeTax = LOW_CEIL*LOW;
+            //calculate remainder to higher bracket
             if(income >= LOW_CEIL){
                 
                 incomeTax = incomeTax + income*MED;
                 System.out.println("You must pay $"+incomeTax+" in income tax");
-            
+            //calculate remainder to lowest bracket
             }else if (income < LOW_CEIL){
             incomeTax = incomeTax+income*LOW;
             System.out.println("You must pay $"+incomeTax);
         } 
             
         }
+        //copy of above if statement...constant values changed
         else if (income >= MED_CEIL){
             income = income-MED_CEIL;
             incomeTax = incomeTax + MED_CEIL*MED;
@@ -70,6 +74,7 @@ public class IncomeTax {
             } 
             
         }
+        //copy of above if statement...constant values changed
         else if (income >= HIGH_CEIL){
             income = income-HIGH_CEIL;
             incomeTax = incomeTax + HIGH_CEIL*HIGH;
@@ -82,7 +87,9 @@ public class IncomeTax {
             System.out.println("You must pay $"+incomeTax);
             } 
             
-        }else if (income >= RICH_CEIL){
+        }
+        //copy of above if statement...constant values changed
+        else if (income >= RICH_CEIL){
             income = income-RICH_CEIL;
             incomeTax = incomeTax + RICH_CEIL*RICH;
             if(income >= RICH_CEIL){
